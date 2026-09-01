@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yusuf Rehman — Software Engineer</title>
+<meta name="description" content="Yusuf Rehman — First-Class Computer Science graduate, IoT/software engineer. CV, projects and publications.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top">YR<span class="dot">.</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <p class="eyebrow">Software Engineer · IoT &amp; Embedded Systems</p>
+    <h1>Yusuf Rehman</h1>
+    <p class="hero-lede">
+      First-Class Computer Science graduate ranked <strong>top 3 of 500+</strong> final-year students,
+      first author on a peer-reviewed <strong>IEEE</strong> publication. I build software with a hardware
+      engineer's instinct for how systems actually fail — from ESP32 firmware to production dashboards.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects">See my work</a>
+      <a class="btn btn-outline" href="https://linkedin.com/in/y-rehman" target="_blank" rel="noopener">Get in touch</a>
+    </div>
+    <ul class="hero-meta">
+      <li><span class="ico">💼</span> <a href="https://linkedin.com/in/y-rehman" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><span class="ico">🐙</span> <a href="https://github.com/fury148" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </section>
+
+  <section class="wrap section" id="projects">
+    <h2 class="section-title"><span class="idx">01</span> Projects</h2>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>Off-Grid Solar &amp; IoT Energy Monitoring System</h3>
+        <span class="tag">Personal project</span>
+      </div>
+      <ul>
+        <li>Specified and installed a 3kW off-grid solar array, 5kWh battery bank and 6kW hybrid inverter, cutting household electricity costs by roughly £70/month.</li>
+        <li>Built custom ESP32-based monitoring devices using <strong>ESPHome</strong> to read live data from the inverter (RS232/RS485/Modbus) and battery shunt — generation, load, state of charge, charge/discharge power.</li>
+        <li>Integrated all sensor data into <strong>Home Assistant</strong>, building a dashboard that turns raw electrical telemetry into an accessible interface for non-technical household users.</li>
+      </ul>
+      <div class="chips">
+        <span>ESP32</span><span>ESPHome</span><span>Home Assistant</span><span>RS485 / Modbus</span>
+      </div>
+      <a class="project-link" href="projects/off-grid-solar.html">Read the full story &rarr;</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>TRACE — Tracking and Real-time Analytics for Cargo and Enterprises</h3>
+        <span class="tag">IEEE publication · first author</span>
+      </div>
+      <p class="card-sub">Final-year industry-collaborative project with Conway Packaging Services (CPS) Ltd.</p>
+      <ul>
+        <li>Designed and built the tracking device on a <strong>LilyGO TTGO T-SIM7000G (ESP32)</strong> with BME280 (temperature/humidity) and MPU6050 (accelerometer) sensors, using onboard GPS, 4G and WiFi with MicroSD logging for offline resilience.</li>
+        <li>Prototyped and tested a system to replace CPS's manual shipment-tracking process with real-time visibility, including automated, data-driven alerting to flag damage or misplacement risk in transit.</li>
+        <li>First author on the resulting paper proposing an integrated IoT and blockchain solution for real-time supply chain traceability, developed with Birmingham City University's College of Computing.</li>
+      </ul>
+      <div class="chips">
+        <span>ESP32</span><span>GPS / 4G</span><span>BME280</span><span>MPU6050</span><span>Blockchain</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>Home Lab</h3>
+        <span class="tag">Personal infrastructure</span>
+      </div>
+      <ul>
+        <li>Run a self-hosted server environment on <strong>Proxmox VE</strong>, virtualising multiple VMs for networking and self-hosting experimentation.</li>
+        <li>Configured <strong>TrueNAS</strong> with RAID redundancy and automated nightly backups; self-host Home Assistant, Immich and Vaultwarden via Docker.</li>
+      </ul>
+      <div class="chips">
+        <span>Proxmox VE</span><span>TrueNAS</span><span>Docker</span>
+      </div>
+    </article>
+  </section>
+
+  <section class="wrap section" id="experience">
+    <h2 class="section-title"><span class="idx">02</span> Experience</h2>
+
+    <div class="timeline">
+      <article class="tl-item">
+        <div class="tl-date">Sep 2023 – Oct 2024</div>
+        <div class="tl-body">
+          <h3>Placement Student — IT Technician</h3>
+          <p class="card-sub">Birmingham City University</p>
+          <ul>
+            <li>Deployed, configured and maintained hardware across production lab environments serving 200+ concurrent users, applying structured lifecycle management.</li>
+            <li>Provided first-line IT support and incident response for students and staff, resolving hardware and software failures with fast turnaround.</li>
+            <li>Assembled and integrated electronic circuits for project deployments, pairing hardware work with software debugging and systems integration.</li>
+            <li>Worked directly with 100+ students during code deployment, resolving build and configuration issues.</li>
+            <li>Contributed to the BCU Repair Lab, supporting asset troubleshooting and technical documentation.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-date">Sep 2022 – Present</div>
+        <div class="tl-body">
+          <h3>Visiting Demonstrator</h3>
+          <p class="card-sub">Birmingham City University</p>
+          <ul>
+            <li>Deliver technical guidance in lab sessions of 30+ students across multiple modules that maintain a 95%+ pass rate.</li>
+            <li>Prepare instructional materials, support grading and discussion sessions, and act as first point of contact for coursework queries.</li>
+            <li>Co-organised the BCU Innovation Festival for three consecutive years (2023–2025), coordinating logistics for an event attended by hundreds.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-date">Dec 2017 – Present</div>
+        <div class="tl-body">
+          <h3>Supervisor</h3>
+          <p class="card-sub">Poundland</p>
+          <ul>
+            <li>Lead and motivate a team of 4–6 sales assistants per shift, training new starters and keeping the team focused on service.</li>
+            <li>Own end-to-end cash/card reconciliation and closing procedures with a zero-error record.</li>
+            <li>Bring organisation and energy to daily operations, prioritising tasks and stepping in on the shop floor when it's busiest.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap section" id="education">
+    <h2 class="section-title"><span class="idx">03</span> Education</h2>
+
+    <div class="timeline">
+      <article class="tl-item">
+        <div class="tl-date">Sep 2020 – May 2025</div>
+        <div class="tl-body">
+          <h3>BSc (Hons) Computer Science with Professional Placement — First Class</h3>
+          <p class="card-sub">Birmingham City University</p>
+          <ul>
+            <li>Ranked top 3 of 500+ final-year students; final-year project developed with an industry partner and published as a first-author peer-reviewed paper at IEEE.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-date">Sep 2017 – Jul 2020</div>
+        <div class="tl-body">
+          <h3>A-Levels &amp; BTEC</h3>
+          <p class="card-sub">Cadbury College</p>
+          <ul>
+            <li>A-Level Mathematics, A-Level Graphics, BTEC ICT.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap section" id="publications">
+    <h2 class="section-title"><span class="idx">04</span> Publications</h2>
+    <article class="card pub">
+      <p>
+        <strong>Rehman, Y.</strong>, Cervantes, W., Mahmoud, H., Feldman, G., Mohammad, N., Attkins, P., Bhana, R.,
+        <em>“TRACE: Tracking and Real-time Analytics for Cargo and Enterprises,”</em>
+        2025 30th International Conference on Automation and Computing (ICAC), Loughborough, UK, 2025.
+      </p>
+      <a class="doi" href="https://doi.org/10.1109/ICAC65379.2025.11196434" target="_blank" rel="noopener">
+        DOI: 10.1109/ICAC65379.2025.11196434 ↗
+      </a>
+    </article>
+  </section>
+
+  <section class="wrap section" id="skills">
+    <h2 class="section-title"><span class="idx">05</span> Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Programming</h3>
+        <div class="chips">
+          <span>C++</span><span>Python</span><span>Java</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Databases</h3>
+        <div class="chips">
+          <span>PostgreSQL</span><span>MySQL</span><span>MariaDB</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="chips">
+          <span>AWS</span><span>Docker</span><span>Git</span><span>ESPHome</span><span>Home Assistant</span><span>JUnit</span><span>Selenium</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Core CS</h3>
+        <div class="chips">
+          <span>Operating Systems</span><span>Networking</span><span>Data Structures &amp; Algorithms</span><span>OOP</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Hardware &amp; Creative</h3>
+        <div class="chips">
+          <span>Soldering</span><span>Electronics</span><span>3D Printing (FDM &amp; Resin/SLA)</span><span>Marlin/Klipper</span><span>CAD Design</span>
+        </div>
+      </div>
+    </div>
+    <p class="fine-print">Full UK Driving Licence (held 6 years)</p>
+  </section>
+
+  <section class="wrap section contact-cta" id="contact">
+    <h2 class="section-title"><span class="idx">06</span> Contact</h2>
+    <p>Looking to bring a well-rounded, delivery-focused skill set to a software engineering team — let's talk.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://linkedin.com/in/y-rehman" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-outline" href="https://github.com/fury148" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="year"></span> Yusuf Rehman</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/y-rehman" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/fury148" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

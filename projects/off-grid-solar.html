@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Off-Grid Solar & IoT Energy Monitoring — Yusuf Rehman</title>
+<meta name="description" content="From a £40 shed-lighting kit to a 3.2kW roof-mounted hybrid solar system with custom ESP32/ESPHome monitoring in Home Assistant.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="../index.html#top">YR<span class="dot">.</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#education">Education</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="wrap project-hero">
+    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <p class="eyebrow">Personal project · 2024 – Present</p>
+    <h1>Off-Grid Solar &amp; IoT Energy Monitoring System</h1>
+    <p class="hero-lede">
+      What started as a £40 Facebook Marketplace kit to stop fumbling around a dark garden shed
+      grew into a 3.2kW roof-mounted hybrid solar system powering the house — with a custom
+      ESP32/ESPHome monitoring stack built to fix an inverter that couldn't even report its own
+      battery level correctly.
+    </p>
+    <div class="chips">
+      <span>ESP32</span><span>ESP8266 (D1 mini)</span><span>ESPHome</span><span>Home Assistant</span>
+      <span>LiFePO4</span><span>RS232 / Modbus</span><span>Hybrid Inverter</span>
+    </div>
+
+    <div class="img-placeholder img-placeholder-hero">
+      <span>Photo placeholder</span>
+      <p>Wide shot of the roof-mounted panel array / finished setup</p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-value">3.2kW</span>
+        <span class="stat-label">Solar array (6× Longi Hi-Mo X6 HTH 535W)</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">5.2kWh</span>
+        <span class="stat-label">Battery bank (2× 24V 100Ah LiFePO4, series)</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">6.2kW</span>
+        <span class="stat-label">PowMR 48V hybrid inverter</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">£85</span>
+        <span class="stat-label">Saved in July 2026 (340kWh generated vs 141kWh imported, 25p/kWh)</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">01</span> Origins — lighting a shed (2024)</h2>
+    <p>
+      The whole thing started small: it was hard to find anything in the garden shed after dark.
+      In 2024 I picked up a cheap 200W solar kit off Facebook Marketplace for £40 — two 100W panels,
+      a charge controller and some wiring — and paired it with a couple of used 12V car batteries
+      from a friend. Enough to keep a light on at night, and enough to get me hooked.
+    </p>
+
+    <div class="img-placeholder">
+      <span>Photo placeholder</span>
+      <p>Early shed setup — the original 200W kit and car batteries</p>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">02</span> Going bigger</h2>
+    <p>
+      Lighting a shed led to reading about how countries like Afghanistan and Pakistan use solar
+      to work around unreliable grids — load shedding, and never quite knowing when the power
+      would come back. That reframed the shed project for me: this wasn't just a hobby setup,
+      it was a genuinely useful way to take load off an unreliable supply. The goal became mainly
+      about saving money on grid imports and being less dependent on the grid overall. In May 2025
+      I started applying that thinking to the house.
+    </p>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">03</span> The home system (May 2025)</h2>
+    <p>
+      The core of the system is a <strong>PowMR 6.2kW 48V hybrid inverter</strong>, which takes
+      the solar input, converts it to the right voltage to charge the battery bank, and produces
+      240V AC to run regular household electrics.
+    </p>
+    <p>
+      For batteries, I went with <strong>2× 24V 100Ah LiFePO4</strong> packs wired in series to
+      make a 48V bank (5.2kWh). Solar generation comes from <strong>6× Longi Hi-Mo X6 HTH 535W</strong>
+      panels — 3.2kW at peak. Budget meant the panels couldn't go on the roof straight away, so
+      initially 4 of the 6 went up on the garden fence, which was enough to charge the batteries
+      through the afternoon. Even in that early state it was already useful: running the washing
+      machine and dryer off the battery bank saved roughly 2kWh per load.
+    </p>
+
+    <div class="img-placeholder">
+      <span>Photo placeholder</span>
+      <p>Panels fence-mounted, and the inverter/battery installation</p>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">04</span> The monitoring problem</h2>
+    <p>
+      Once the system was running, I noticed the inverter's own battery percentage reading wasn't
+      accurate — not close enough to trust. Rather than live with a rough estimate, I looked into
+      battery shunts, which measure the actual current flowing in and out of the battery bank
+      directly, giving a proper state-of-charge figure instead of the inverter's guess.
+    </p>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">05</span> The build</h2>
+    <p>
+      Getting the data into <strong>Home Assistant</strong> meant tackling two separate problems:
+    </p>
+    <ul>
+      <li>
+        <strong>Reading the inverter:</strong> I got an ESP32 talking to the inverter over its
+        RS232 port, using a cut-up Ethernet cable to make the physical connection — a scrappy
+        but effective way to wire it up without a proper adapter.
+      </li>
+      <li>
+        <strong>Reading the shunt:</strong> a separate <strong>D1 mini (ESP8266)</strong> board,
+        flashed with <strong>ESPHome</strong>, reads the shunt and sends battery data to
+        Home Assistant over WiFi.
+      </li>
+    </ul>
+    <p>
+      With both feeding into Home Assistant, I built a custom Lovelace dashboard card configured
+      to present the data clearly — generation, load, state of charge, charge/discharge power —
+      so it's easy for non-technical people in the house to understand at a glance, not just me.
+    </p>
+
+    <div class="img-placeholder">
+      <span>Photo placeholder</span>
+      <p>ESP32/D1 mini wiring — the RS232 Ethernet-cable connection and shunt build</p>
+    </div>
+    <div class="img-placeholder">
+      <span>Photo placeholder</span>
+      <p>Home Assistant dashboard showing the custom energy card</p>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">06</span> Roof mount (April–May 2026)</h2>
+    <p>
+      In April 2026 I finally had the budget for proper roof mounts, and by mid-May the full
+      array was installed on the garage roof. That moved generation from a few afternoon hours
+      on the fence to spread across the whole day — a big step up in how much of the system's
+      potential was actually being used.
+    </p>
+
+    <div class="img-placeholder">
+      <span>Photo placeholder</span>
+      <p>Panels roof-mounted on the garage</p>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">07</span> Results</h2>
+    <p>
+      With the array roof-mounted and generating all day, July 2026 gives a clear before/after:
+      the house imported <strong>141kWh</strong> from the grid overnight, while the panels
+      produced around <strong>340kWh</strong> during the day and evening — saving roughly
+      <strong>£85</strong> that month at 25p/kWh. The system is still growing, and the monitoring
+      stack means every improvement from here is measurable rather than guesswork.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="year"></span> Yusuf Rehman</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/y-rehman" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/fury148" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
