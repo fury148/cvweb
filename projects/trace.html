@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRACE — Cargo Tracking IoT Device — Yusuf Rehman</title>
+<meta name="description" content="TRACE: an IoT tracking device built with Conway Packaging Services to prove where and when damage happens in transit — first-author IEEE publication.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="../index.html#top">YR<span class="dot">.</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#education">Education</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="wrap project-hero">
+    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <p class="eyebrow">Final-year industry project · Conway Packaging Services · 2024 – 2025</p>
+    <h1>TRACE — Tracking and Real-time Analytics for Cargo and Enterprises</h1>
+    <p class="hero-lede">
+      An IoT device built to answer a question Conway Packaging Services couldn't otherwise
+      prove: did this equipment get damaged in transit, or after it was delivered? First author
+      on the resulting peer-reviewed paper at IEEE ICAC 2025.
+    </p>
+    <div class="chips">
+      <span>ESP32-S3</span><span>LILYGO T-SIM7000G-S3</span><span>GPS / 4G</span>
+      <span>BME280</span><span>MPU6050</span><span>ThingsBoard</span><span>IEEE Publication</span>
+    </div>
+
+    <div class="img-placeholder img-placeholder-hero">
+      <span>Photo placeholder</span>
+      <p>The tracking device, assembled — or the team/paper presentation</p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-value">5</span>
+        <span class="stat-label">Live metrics tracked — GPS, speed, temperature, humidity, tilt</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">IEEE</span>
+        <span class="stat-label">First-author peer-reviewed publication, ICAC 2025</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">4G/LTE</span>
+        <span class="stat-label">T-SIM7000G-S3 — integrated GPS + cellular + MicroSD</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">Live</span>
+        <span class="stat-label">ThingsBoard dashboard with threshold-based alerts</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">01</span> The problem</h2>
+    <p>
+      Conway Packaging Services faced difficulties when delivering equipment to customers,
+      particularly when items were returned damaged. In some cases, Conway suspected equipment
+      was being deliberately damaged after delivery by customers who no longer needed it and
+      wanted to avoid being held responsible for its return or associated costs.
+    </p>
+    <p>
+      The core difficulty was evidence: once an item was delivered, it was hard to determine
+      whether damage occurred during transportation or after the customer received it. This led
+      to disputes between Conway and its customers, with Conway potentially held responsible for
+      damage that may not have happened while the equipment was under its control.
+    </p>
+    <p>
+      Conway wanted to investigate whether a tracking and monitoring device could provide an
+      objective record of the equipment's location and physical condition throughout its journey
+      — recording events like significant impacts, orientation changes and environmental
+      conditions to help establish whether an item experienced an abnormal event in transit or
+      after delivery. That requirement became TRACE: a prototype IoT tracking device monitoring
+      GPS location, impact/tilt, temperature and humidity, transmitting data remotely.
+    </p>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">02</span> First prototype</h2>
+    <p>
+      The initial build was based on a <strong>Heltec LoRa 32 V3</strong> (ESP32-S3), paired
+      with a <strong>GT-U7 GPS module</strong> for location and speed, a <strong>BME280</strong>
+      sensor for temperature and humidity inside the crate, and an <strong>MPU6050</strong>
+      accelerometer to monitor tilt angle and improve GPS speed accuracy through sensor fusion.
+    </p>
+    <p>
+      For connectivity, this version paired the board with a SIM800L module — which turned out
+      to be the weak link. The SIM800L needed a specific, fairly narrow battery voltage range to
+      run reliably, and only supported 2G, a network many providers are actively phasing out in
+      favour of 4G and beyond.
+    </p>
+
+    <div class="img-placeholder">
+      <span>Photo placeholder</span>
+      <p>First prototype — Heltec LoRa 32 V3, GT-U7 GPS, SIM800L wiring</p>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">03</span> Moving to an integrated board</h2>
+    <p>
+      To fix the connectivity problems, the design moved to a <strong>LILYGO T-SIM7000G-S3</strong>.
+      This single board integrates GPS and 4G cellular, removing the need for the separate GPS
+      module and the troublesome SIM800L entirely, and adds an onboard MicroSD slot for
+      offline data logging when there's no signal. The sensor set stayed the same — BME280 for
+      temperature/humidity, MPU6050 for tilt and GPS sensor fusion — just on a simpler, more
+      reliable board.
+    </p>
+
+    <div class="img-placeholder">
+      <span>Photo placeholder</span>
+      <p>T-SIM7000G-S3 build — final device assembly</p>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">04</span> Dashboard &amp; alerting</h2>
+    <p>
+      Data is visualised in <strong>ThingsBoard</strong>, which gives a real-time view of
+      location, speed, temperature, humidity and tilt angle through customisable graphs, gauges
+      and maps. Because it's accessible remotely, Conway would be able to check a shipment's
+      condition from anywhere with an internet connection, with alerts configurable for
+      thresholds like excessive tilt or high temperature — flagging abnormal events as they
+      happen rather than after the fact. A web interface for pulling stored data directly from
+      the dashboard rounds out the system alongside the onboard MicroSD logging.
+    </p>
+
+    <div class="img-placeholder">
+      <span>Photo placeholder</span>
+      <p>ThingsBoard dashboard — live metrics and map view</p>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">05</span> Testing</h2>
+    <p>
+      Rather than relying on lab simulation alone, testing was done in the real world — driving
+      the device around the city in my own car to generate genuine GPS, speed, tilt and
+      environmental data under real transport conditions rather than idealised bench tests.
+    </p>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">06</span> Publication</h2>
+    <p>
+      The project was developed with Birmingham City University's College of Computing and
+      Conway Packaging Services (CPS) Ltd, and I'm first author on the resulting paper, published
+      at the <strong>2025 30th International Conference on Automation and Computing (ICAC)</strong>
+      in Loughborough, UK.
+    </p>
+    <a class="doi" href="https://doi.org/10.1109/ICAC65379.2025.11196434" target="_blank" rel="noopener">
+      DOI: 10.1109/ICAC65379.2025.11196434 &#8599;
+    </a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="year"></span> Yusuf Rehman</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/y-rehman" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/fury148" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
