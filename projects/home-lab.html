@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Lab — Yusuf Rehman</title>
+<meta name="description" content="A self-hosted infrastructure project — Proxmox, TrueNAS and Docker, built to escape paying for cloud storage that kept running out.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="../index.html#top">YR<span class="dot">.</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#education">Education</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="wrap project-hero">
+    <a class="back-link" href="../index.html#projects">&larr; Back to projects</a>
+    <p class="eyebrow">Personal infrastructure project · Ongoing</p>
+    <h1>Home Lab</h1>
+    <p class="hero-lede">
+      Built to get off the endless cycle of paying Google more every time my photo storage filled
+      up — a low-power Proxmox and TrueNAS server that now runs my own storage, smart home and
+      password management, entirely under my own control.
+    </p>
+    <div class="chips">
+      <span>Proxmox VE</span><span>TrueNAS</span><span>RAIDZ1</span><span>Docker</span>
+      <span>Home Assistant</span><span>Immich</span><span>Vaultwarden</span>
+    </div>
+
+    <div class="img-placeholder img-placeholder-hero">
+      <span>Photo placeholder</span>
+      <p>The CWWK N305 box, set up and running</p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-value">3TB</span>
+        <span class="stat-label">Usable storage — RAIDZ1 across 4× 1TB SSD</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">~25W</span>
+        <span class="stat-label">Idle power draw, running every service</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">4× 2.5G</span>
+        <span class="stat-label">i226-V NICs on the N305 mini PC</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">3+</span>
+        <span class="stat-label">Self-hosted services — Home Assistant, Immich, Vaultwarden</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">01</span> Origins</h2>
+    <p>
+      This one started out of frustration: already paying Google for 100GB of storage, and still
+      constantly running out of space for photos. Rather than keep paying more every time the
+      drive filled up, I decided to break the cycle and self-host instead. After saving up during
+      my placement, I bought a <strong>CWWK 12th Gen Intel N305 fanless mini PC</strong> —
+      DDR5-4800, 4× i226-V 2.5G NICs, built for Proxmox — and paired it with <strong>4× 1TB
+      M.2 SSDs</strong>, choosing SSDs over spinning disks specifically for the speed and
+      reliability.
+    </p>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">02</span> The build</h2>
+    <p>
+      The box ships fanless, but I noticed it running warmer than I was comfortable with for
+      something meant to stay on 24/7, so I added <strong>Noctua fans</strong> to the design —
+      chosen specifically for how quiet they are, since this sits in the living room and I didn't
+      want any noise. Power was a deliberate factor too: the N305 was picked partly for its
+      efficiency, idling around <strong>25W</strong> while running every service on the box.
+    </p>
+
+    <div class="img-placeholder">
+      <span>Photo placeholder</span>
+      <p>Inside the case — the added Noctua fans and M.2 SSDs</p>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">03</span> Storage — Proxmox &amp; TrueNAS</h2>
+    <p>
+      <strong>Proxmox VE</strong> runs the show, virtualising a <strong>TrueNAS</strong> instance
+      configured with <strong>RAIDZ1</strong> across the four 1TB SSDs, giving 3TB of usable,
+      redundant capacity. That's where photos and files actually live now — the direct
+      replacement for the Google Photos storage that kept running out.
+    </p>
+
+    <div class="img-placeholder">
+      <span>Photo placeholder</span>
+      <p>Proxmox and TrueNAS dashboards — VM layout and pool status</p>
+    </div>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">04</span> Services</h2>
+    <p>
+      On top of storage, the box self-hosts a handful of services via Docker:
+    </p>
+    <ul>
+      <li><strong>Home Assistant</strong> — smart home hub (also the backbone for the <a href="off-grid-solar.html">off-grid solar monitoring</a> project).</li>
+      <li><strong>Immich</strong> — the actual Google Photos replacement, storing and organising photos on my own RAIDZ1 pool instead of a paid cloud tier.</li>
+      <li><strong>Vaultwarden</strong> — self-hosted password management, keeping credentials off third-party servers.</li>
+      <li>A few other tools I'm still building and experimenting with.</li>
+    </ul>
+  </section>
+
+  <section class="wrap section story">
+    <h2 class="section-title"><span class="idx">05</span> A tricky problem — NFS and Immich</h2>
+    <p>
+      One of the harder issues was getting the Immich LXC container to actually talk to TrueNAS
+      over NFS. Mounting the NFS share directly inside the container looked like it worked —
+      uploads appeared to succeed — but nothing was actually landing on the TrueNAS server; it
+      was silently writing to fake, local files instead. The fix was to move the mount up a
+      layer: mounting the NFS share on the <strong>Proxmox host</strong> itself, then passing
+      it through to the LXC as a proper bind mountpoint, rather than having the unprivileged
+      container mount NFS on its own.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="year"></span> Yusuf Rehman</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/y-rehman" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/fury148" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
