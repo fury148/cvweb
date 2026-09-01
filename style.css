@@ -417,6 +417,7 @@ a { color: inherit; }
   align-items: start;
 }
 .photo-grid .photo { margin-top: 0; }
+.photo-grid-stack { grid-template-columns: 1fr; }
 
 @media (max-width: 640px) {
   .photo img { max-height: 320px; }
