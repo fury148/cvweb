@@ -27,7 +27,7 @@
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="brand" href="#top">YR<span class="dot">.</span></a>
-    <nav class="nav" aria-label="Primary">
+    <nav class="nav" id="primaryNav" aria-label="Primary">
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
@@ -35,6 +35,9 @@
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -67,7 +70,7 @@
         <span class="tag">Personal project</span>
       </div>
       <ul>
-        <li>Specified and installed a 3kW off-grid solar array, 5kWh battery bank and 6kW hybrid inverter, cutting household electricity costs by roughly £70/month.</li>
+        <li>Specified and installed a 3.2kW off-grid solar array, 5.2kWh battery bank and 6.2kW hybrid inverter, saving roughly £85 in a single month once the array moved to full roof-mounted generation.</li>
         <li>Built custom ESP32-based monitoring devices using <strong>ESPHome</strong> to read live data from the inverter (RS232/RS485/Modbus) and battery shunt — generation, load, state of charge, charge/discharge power.</li>
         <li>Integrated all sensor data into <strong>Home Assistant</strong>, building a dashboard that turns raw electrical telemetry into an accessible interface for non-technical household users.</li>
       </ul>
